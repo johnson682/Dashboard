@@ -1,0 +1,84 @@
+<div class="container mt-5 d-sm-none d-md-block d-none">
+<div class="card ml-5">
+
+ <!-- user name -->
+
+      <a data-toggle="collapse" href="#test-block" aria-expanded="true" aria-controls="test-block" (click)="onClickUserName()">
+        <div class="card-header color">
+          User Name     
+          <i class="fas fa-chevron-right" *ngIf = "!arrow" style="float: right;" ></i>  
+          <i class="fas fa-chevron-down" *ngIf = "arrow" style="float: right;"></i>
+        </div> 
+          </a>
+  <div id="test-block" class="collapse">
+      <div class="card-block p-3 pl-5">
+          {{ userName }}
+      </div>
+    </div>
+
+  <!-- Customer Data -->
+
+      <a data-toggle="collapse" href="#customerData" aria-expanded="true" aria-controls="customerData" (click) ="onClickCustomerData()" >
+        <div class="card-header">Customer Data
+          <i class="fas fa-chevron-right" *ngIf = "!cDataArrow" style="float: right;" ></i>  
+          <i class="fas fa-chevron-down" *ngIf = "cDataArrow" style="float: right;"></i>
+        </div> 
+          </a>
+
+  <div id="customerData" class="collapse">
+      <div class="card-block p-3 pl-5">
+        <i class="fas fa-globe"></i> {{ cData }}
+      </div>
+  </div>
+
+  <div id="customerData" class="collapse">
+      <div class="card-block p-3 pl-5">
+        <i class="fas fa-shopping-cart"></i> {{ cData2 }}
+      </div>
+  </div>
+
+  <!-- Business -->
+
+      <a data-toggle="collapse" href="#business" aria-expanded="true" aria-controls="business" (click) = "onClickBusiness()">
+        <div class="card-header">
+          Business
+          <i class="fas fa-chevron-right" *ngIf = "!bArrow" style="float: right;" ></i>  
+          <i class="fas fa-chevron-down" *ngIf = "bArrow" style="float: right;"></i></div> 
+          </a>
+  <div id="business" class="collapse">
+      <div class="card-block p-3 pl-5">
+        {{ business }}
+      </div>
+  </div>
+
+  <!-- cat -->
+
+      <a data-toggle="collapse" href="#cat" aria-expanded="true" aria-controls="cat" (click)="onClickCat()">
+        <div class="card-header">
+          cat
+          <i class="fas fa-chevron-right" *ngIf = "!cArrow" style="float: right;" ></i>  
+          <i class="fas fa-chevron-down" *ngIf = "cArrow" style="float: right;"></i></div> 
+          </a>
+  <div id="cat" class="collapse">
+      <div class="card-block p-3 pl-5">
+        {{ cat }}
+      </div>
+  </div>
+
+  <!-- New Category -->
+
+      <a data-toggle="collapse" href="#newCategory" aria-expanded="true" aria-controls="newCategory" (click)="onClickNewCategory()">
+        <div class="card-header">
+          New Category
+          <i class="fas fa-chevron-right" *ngIf = "!nArrow" style="float: right;" ></i>  
+          <i class="fas fa-chevron-down" *ngIf = "nArrow" style="float: right;"></i>
+        </div> 
+          </a>
+  <div id="newCategory" class="collapse">
+      <div class="card-block p-3 pl-5">
+          {{ newCategory }}
+      </div>
+  </div>
+
+</div>
+</div>

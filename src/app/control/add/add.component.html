@@ -1,0 +1,64 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="alert-box">
+  
+    <div class="row">
+      <div class="col-lg-12">
+        <form [formGroup] ="userDataForm" (ngSubmit)="onSubmit()" >
+              <div class="row"> 
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="customerId">Customer Id </label>
+                  <input id="customerId" type="text" class="form-control" formControlName="name">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="customerId"> First Name </label>
+                  <input id="customerId" type="text" class="form-control" formControlName="fname">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="customerId"> Last Name </label>
+                  <input id="customerId" type="text" class="form-control" formControlName="lname">
+                </div>
+              </div>
+              <div class="col-lg-6">
+              <div class="form-group">
+                <label for="email">Email Id </label>
+                <input id="email" type="mail" class="form-control" formControlName="email">
+              </div>
+            </div>
+            </div>
+                
+                  <div class="form-group">
+                    <label for="imagePath">Image URL</label>
+                    <input
+                      type="text"
+                      id="imagePath"
+                      formControlName="imagePath"
+                      class="form-control"
+                      #imagePath
+                    />
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-5">
+                      <img [src]="imagePath.value" [alt]="userDataForm.value.fname" class="img-responsive" height="100px" width="180px"  onerror="this.src='../../assets/img/fallback-img.png'"> <hr>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="date">Rental Date </label>
+                        <input id="date" type="datetime-local" class="form-control" formControlName="date">
+                      </div>
+                    </div>
+                  </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!userDataForm.valid"> {{ editMode ? 'Update' : 'Add'}} </button>
+              </form>
+        </div>
+    </div>
+
+
+  <div class="alert-box-actions">
+    <button type="button" class="btn btn-primary" (click)="onClose()">Close</button>
+  </div>
+</div>

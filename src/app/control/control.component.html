@@ -1,0 +1,41 @@
+<div class="container mt-5">
+
+    <div class="card">
+        <div class="card-header">
+          <button class="btn btn-primary" (click)="onAddNew()"> <i class="fas fa-plus-circle"></i> ADD NEW</button>
+          <button class="btn btn-success ml-3" (click)="onUpload()" type="button" > <i class="fas fa-upload"></i> Upload  </button>
+          <button class="btn btn-success ml-3" (click)="onFetch()" type="button" > <i class="fas fa-download pt-2"></i> Download </button>
+          <div style="float: right;">    
+               <button class="btn btn-warning text-light" (click) ="onMenu()" > Menu </button>
+            </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Action</th>
+              <th scope="col">rental id</th>
+              <th scope="col">rental date</th>
+              <th scope="col">customer id</th>
+              <th scope="col">Display</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor="let userData of userDatas | paginate: {
+              currentPage: page, itemsPerPage: pagePerItem, totalItems: totalLength }; let i = index">
+              <td>
+                <button type="button" class="btn btn-warning mr-1" (click) ="onEditItem(i)" ><i class="fas fa-pen" style="color: white;"></i></button>
+                <button type="button" class="btn btn-danger" (click) ="onDelete(i)"><i class="far fa-times-circle"></i></button>
+              </td>
+              <td> {{ (pagePerItem * (page - 1) + i )+1}} </td>
+              <td>{{ userData.date | date:'short' }}</td>
+              <td>{{ userData.name }}</td>
+              <td><i class="fas fa-external-link-alt" style="cursor: pointer;" (click) = "onDisplay(i)"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <pagination-controls class="pagination justify-content-center mt-5" (pageChange)="page = $event"></pagination-controls>
+</div>
+<router-outlet></router-outlet>

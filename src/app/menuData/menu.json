@@ -1,0 +1,39 @@
+{
+    "hits": [
+      {
+        "_id": "IBM",
+        "SG&A Spend Growth %": {
+          "2013": "0.27",
+          "2014": "0.07"
+        },
+        "SG&A Spend as a % of Revenue": {
+          "2013": "0.67",
+          "2014": "0.23"
+        }
+      },
+      {
+        "_id": "CyberArk Software Ltd",
+        "SG&A Spend Growth %": {
+          "2013": "0.23",
+          "2014": "0.73"
+        },
+        "SG&A Spend as a % of Revenue": {
+          "2013": "0.13",
+          "2014": "0.13"
+        }
+      },
+      {
+        "_id": "Cognizant",
+        "_source": {
+          "SG&A Spend Growth %": {
+            "2013": "0.30",
+            "2014": "0.38"
+          },
+          "SG&A Spend as a % of Revenue": {
+            "2013": "0.2",
+            "2014": "0.2"
+          }
+        }
+      }
+    ]
+  }
