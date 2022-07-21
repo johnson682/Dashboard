@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  changeColor:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(){
+    this.changeColor = !this.changeColor
   }
 
 }
