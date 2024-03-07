@@ -6,13 +6,13 @@ import { ControlService } from '../control.service';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
 
-  id: number;
+  id: number = 0;
   editMode = false;
-  userDataForm: FormGroup;
+  userDataForm!: FormGroup;
 
   constructor(private route: ActivatedRoute,
               private controlService:ControlService,

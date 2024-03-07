@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { UsersData } from 'src/app/Data/data.model';
 import { ControlService } from '../control.service';
+import { UsersData } from '../../Data/data.model';
 
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
-  styleUrls: ['./display.component.css']
+  styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
 
-  id:number;
-  userDatas:UsersData;
+  id:number = 0;
+  userDatas!: UsersData;
 
   constructor(private route:ActivatedRoute, private controlService:ControlService){}
 

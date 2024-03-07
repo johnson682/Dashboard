@@ -8,7 +8,7 @@ import { ControlService } from './control.service';
 @Component({
   selector: 'app-control',
   templateUrl: './control.component.html',
-  styleUrls: ['./control.component.css']
+  styleUrls: ['./control.component.scss']
 })
 
 export class ControlComponent implements OnInit, OnDestroy {
@@ -18,10 +18,10 @@ export class ControlComponent implements OnInit, OnDestroy {
                     private controlService:ControlService,
                     private serverData:ServerData ) { }
 
-  userDatas:UsersData[];
-  dataSubscription : Subscription;
-  id:number;
-  usersDatas:UsersData;
+  userDatas: UsersData[];
+  dataSubscription!: Subscription;
+  id!: number;
+  usersDatas!:UsersData;
   totalLength:any;
   page:number=1;
   pagePerItem:number = 4;

@@ -1,0 +1,25 @@
+nav{
+    background-color: #008cba;
+    min-height: 100px;
+}
+
+.navbar-brand{
+     padding-left: 50px;
+     color: white;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.navbar-text a{
+       color: white;
+       text-decoration: none;
+       padding-right: 50px;
+}
+
+.colorRed{
+    background-color: red !important;
+}

@@ -4,7 +4,7 @@ import data from '../menuData/menu.json'
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.scss']
 })
 
 export class MenuComponent{
@@ -12,15 +12,15 @@ export class MenuComponent{
     this.generatePlot();
   }
 
-  groupBy(xs, key) {
-    return xs.reduce(function (rv, x) {
+  groupBy(xs:any, key:any) {
+    return xs.reduce(function (rv:any, x:any ) {
       (rv[x[key]] = rv[x[key]] || []).push(x);
       return rv;
     }, {});
   };
 
-  menuList = [];
-  groupedMertics = {};
+  menuList:any = [];
+  groupedMertics:any = {};
   generatePlot() {
     const getMetrics = [];
     const getHits = data.hits;
@@ -30,7 +30,7 @@ export class MenuComponent{
       for (let metric in hitLoop) {
         let value;
         value = hitLoop[metric];
-        let obj = {};
+        let obj:any = {};
         obj['year'] = value;
         obj['company'] = company;
         obj['mertric'] = metric;
@@ -48,19 +48,19 @@ export class MenuComponent{
   }
   selectedMenuInfo: any;
 
-  selectedMenu(menu) {
+  selectedMenu(menu:any) {
     const matchedMetric = this.groupedMertics[menu.id];
-    let generateObj = {
+    let generateObj:any = {
       labels: [],
       datasets: []
     };
    
     for (let j = 0; j < matchedMetric.length; j++) {
-      const loopValue = matchedMetric[j]
+      const loopValue:any = matchedMetric[j]
       generateObj['labels'].push(loopValue.company);
 
       for (let metric in loopValue.year) {
-        let obj = {};
+        let obj:any = {};
         obj['label'] = metric;
         obj['data'] = loopValue.year[metric];
         generateObj['datasets'].push(obj);
@@ -71,9 +71,9 @@ export class MenuComponent{
        
     let datasets = [];
     for (let metric in grouped1) {
-      let newObj = {};
+      let newObj:any = {};
       newObj['label'] = metric;
-      newObj['data'] = grouped1[metric].map(res => {
+      newObj['data'] = grouped1[metric].map((res:any) => {
 
         return res.data
       });
