@@ -26,6 +26,7 @@ export class ServerData{
             )
             .pipe(
                 tap(userDatas=>{
+                    console.log(userDatas)
                     this.controlService.setUserDatas(userDatas)
                 })
             )

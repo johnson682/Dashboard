@@ -13,6 +13,7 @@ import { AddComponent } from './control/add/add.component';
 import { DisplayComponent } from './control/display/display.component';
 import { MenuComponent } from './menu/menu.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

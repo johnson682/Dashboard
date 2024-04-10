@@ -28,8 +28,8 @@
               <button type="button" class="btn btn-danger" (click) ="onDelete(i)"><i class="far fa-times-circle"></i></button>
             </td>
             <td> {{ (pagePerItem * (page - 1) + i )+1}} </td>
-            <td>{{ userData.date | date:'short' }}</td>
-            <td>{{ userData.name }}</td>
+            <td>{{ userData?.date | date:'short' }}</td>
+            <td>{{ userData?.name }}</td>
             <td><i class="fas fa-external-link-alt" style="cursor: pointer;" (click) = "onDisplay(i)"></i></td>
           </tr>
         </tbody>
