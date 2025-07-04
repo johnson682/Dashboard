@@ -10,7 +10,7 @@ export class DataResolverService implements Resolve<UsersData[]>{
                 
        resolve(route:ActivatedRouteSnapshot, state:RouterStateSnapshot){
             const usersData = this.controlService.getUserDatas();
-            if(length === 0){
+            if (usersData.length === 0){
                  return this.serverData.fetchData();
             }
             else{
