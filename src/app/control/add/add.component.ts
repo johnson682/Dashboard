@@ -5,6 +5,7 @@ import { ControlService } from '../control.service';
 
 @Component({
   selector: 'app-add',
+  standalone:false,
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })

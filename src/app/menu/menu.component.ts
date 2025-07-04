@@ -3,6 +3,7 @@ import data from '../menuData/menu.json'
 
 @Component({
   selector: 'app-menu',
+  standalone:false,
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })

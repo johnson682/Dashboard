@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
+import { of } from "rxjs";
 import { ControlService } from "../control/control.service";
 import { UsersData } from "./data.model";
 import { ServerData } from "./serverData.service";
@@ -14,7 +15,7 @@ export class DataResolverService implements Resolve<UsersData[]>{
                  return this.serverData.fetchData();
             }
             else{
-                 return usersData;
+                 return of(usersData);
             }
        }
 }

@@ -6,19 +6,26 @@ import { ControlService } from './control.service';
 
 @Component({
   selector: 'app-control',
+  standalone:false,
   templateUrl: './control.component.html',
   styleUrls: ['./control.component.scss']
 })
 
 export class ControlComponent implements OnInit, OnDestroy {
   editMode = false;
-  constructor(private router:Router, 
-                    private route:ActivatedRoute,
-                    private controlService:ControlService,
-                    private serverData:ServerData ) { }
+  constructor(
+    private router:Router, 
+    private route:ActivatedRoute,
+    private controlService:ControlService,
+    private serverData:ServerData 
+  ) {
+    this.dataEffect = effect(() => {
+      this.userDatas = this.controlService.userDataChanged();
+    });
+  }
 
   userDatas: UsersData[];
-  dataEffect!: EffectRef;
+  dataEffect: EffectRef;
   id!: number;
   usersDatas!:UsersData;
   totalLength:any;
@@ -34,9 +41,6 @@ export class ControlComponent implements OnInit, OnDestroy {
     this.userDatas = this.controlService.getUserDatas();
    this.totalLength = this.userDatas.length;
    console.log(this.totalLength);
-    this.dataEffect = effect(() => {
-      this.userDatas = this.controlService.userDataChanged();
-    });
     this.route.params
     .subscribe(
       (params: Params) => {

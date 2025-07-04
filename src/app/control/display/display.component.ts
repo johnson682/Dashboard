@@ -5,6 +5,7 @@ import { UsersData } from '../../Data/data.model';
 
 @Component({
   selector: 'app-display',
+  standalone:false,
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.scss']
 })
