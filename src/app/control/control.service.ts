@@ -1,11 +1,10 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { Injectable, signal } from "@angular/core";
 import { UsersData } from "../Data/data.model";
 
 @Injectable({providedIn:'root'})
 export class ControlService{
-    userDataChanged = new Subject<UsersData[]>() ;
-    startedEditing = new Subject<number>()
+    userDataChanged = signal<UsersData[]>([]);
+    startedEditing = signal<number|null>(null);
 
     // private userDatas:UsersData[] = [
     //     new UsersData('Antony@10','Antony','Johnson','antony@gmail.com',new Date,'https://reqres.in/img/faces/1-image.jpg'),
@@ -17,7 +16,7 @@ export class ControlService{
 
       setUserDatas(usersData:UsersData[]){
              this.userDatas = usersData;
-             this.userDataChanged.next(this.userDatas.slice()); 
+             this.userDataChanged.set(this.userDatas.slice());
       }
 
       getUserDatas(){
@@ -30,17 +29,17 @@ export class ControlService{
 
       addNewUserData(userData:UsersData){
           this.userDatas.push(userData);
-         this.userDataChanged.next(this.userDatas.slice());   
+         this.userDataChanged.set(this.userDatas.slice());
       }
 
       updateUserDatas(index:number, newUserData:UsersData){
           this.userDatas[index] = newUserData;
-          this.userDataChanged.next(this.userDatas.slice()); 
+          this.userDataChanged.set(this.userDatas.slice());
       }
 
       deleteUserDatas(index:number){
            this.userDatas.splice(index,1);
-           this.userDataChanged.next(this.userDatas.slice()); 
+           this.userDataChanged.set(this.userDatas.slice());
       }
 
 }
