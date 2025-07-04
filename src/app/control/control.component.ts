@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, effect, EffectRef } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { UsersData } from '../Data/data.model';
 import { ServerData } from '../Data/serverData.service';
 import { ControlService } from './control.service';
@@ -19,7 +18,7 @@ export class ControlComponent implements OnInit, OnDestroy {
                     private serverData:ServerData ) { }
 
   userDatas: UsersData[];
-  dataSubscription!: Subscription;
+  dataEffect!: EffectRef;
   id!: number;
   usersDatas!:UsersData;
   totalLength:any;
@@ -35,9 +34,8 @@ export class ControlComponent implements OnInit, OnDestroy {
     this.userDatas = this.controlService.getUserDatas();
    this.totalLength = this.userDatas.length;
    console.log(this.totalLength);
-    this.dataSubscription = this.controlService.userDataChanged
-    .subscribe((userDatas:UsersData[])=>{
-      this.userDatas = userDatas;
+    this.dataEffect = effect(() => {
+      this.userDatas = this.controlService.userDataChanged();
     });
     this.route.params
     .subscribe(
@@ -78,7 +76,7 @@ export class ControlComponent implements OnInit, OnDestroy {
    }
 
    ngOnDestroy(){
-    this.dataSubscription.unsubscribe();
+    this.dataEffect.destroy();
    }
 
 }
