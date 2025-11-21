@@ -1,8 +1,10 @@
 <div class="container mt-5" >
   <ul>
-    <li *ngFor="let menu of menuList" (click)="selectedMenu(menu)">{{menu.label}}</li>
+    @for (menu of menuList; track menu) {
+      <li (click)="selectedMenu(menu)">{{menu.label}}</li>
+    }
   </ul>
-  
+
   <pre>
     {{selectedMenuInfo|json}}
   </pre>
